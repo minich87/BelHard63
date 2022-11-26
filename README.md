@@ -1,2 +1,2 @@
 # BelHard63
-# Welcom to Git!!!
+# Welcome to Git!!!
