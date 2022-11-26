@@ -23,10 +23,12 @@ while num3 == 0:
 
 nums = (num1, num2, num3)
 
+count1 = 0
+count2 = 0
 for i in nums:
     if i > 0:
-        i += 1
-    print('Positive numbers:', i)
-    if i < 0:
-        i += 1
-    print('Negative numbers:', i)
+        count1 += 1
+    elif i < 0:
+        count2 += 1
+print('Positive numbers:', count1)
+print('Negative numbers:', count2)
