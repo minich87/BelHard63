@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Welcom to Git!!!
+=======
+
+>>>>>>> origin/Minich
