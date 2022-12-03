@@ -1,12 +1,12 @@
 # Без collections,
-# подсчитывает количества вхождений каждой буквы, введенном тексте
+# подсчитать количество вхождений каждой буквы, в введенном тексте
 
 text = input('Enter text: ')
 
-data = {i: i for i in text}
-data_key = data.keys()
-data_char = data.values()
+data_key = (i for i in text)
 
-print(text)
+#data = data.fromkeys(data_char)
+
+print(data_key)
 print(data)
 
