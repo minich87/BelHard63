@@ -2,20 +2,18 @@
 # а значениями вложенный словарь с ключами "name", "email",
 # а их значения будут введены пользователем
 
-number_users = int(input("Enter amount users: "))
+max_users = int(input('Enter amount users: '))
 
-dict_key = (i for i in range(0, number_users+1))
+numbers_users = [i for i in range(0, max_users + 1)]
 
-name_dict2 = 'User_' + str(i for i in dict_key)
+user = {'name': None, 'email': None}
 
-users = {}
-users.fromkeys(dict_key, name_dict2)
+users = dict.fromkeys(numbers_users, user)
 
-user_key1 = 'name'
-user_key2 = 'email'
+i = 0
+while i <= max_users:
+    users[i]['name'] = input(f'Enter user №{i} name: ')
+    users[i]['email'] = input(f'Enter user №{i} email: ')
+    i += 1
 
-
-
-
-print(dict_key)
-print(name_dict2)
+print(users)
