@@ -2,8 +2,6 @@
 
 max_power = int(input('Enter max power: '))
 
-user_list = []
-
-user_list.append(pow(2, max_power))
+user_list = [2**i for i in (range(1, max_power))]
 
 print(user_list)
