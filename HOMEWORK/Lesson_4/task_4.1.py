@@ -1,5 +1,7 @@
 # Заполнить список степенями числа 2 (2^1, 2^n)
 
-power = int(input('Enter the power: '))
+max_power = int(input('Enter max power: '))
 
-user_list = ()
+user_list = [2**i for i in (range(1, max_power))]
+
+print(user_list)
