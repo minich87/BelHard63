@@ -1,7 +1,0 @@
-print('shgyug')
-print('shgyug')
-print('shgyug')
-print('shgyug')
-print('shgyug')
-print('shgyug')
-print('shgyug')
