@@ -7,10 +7,10 @@ while upper_limit is None:
     except ValueError:
         print('Please, enter integer!')
 
-massif = []
+massiv = []
 for i in range(2, upper_limit+1):
     if i % 2 == 0:
-        massif.append(i)
+        massiv.append(i)
 
-for i in range(0, len(massif), 5):
-    print(massif[i: i + 5])
+for i in range(0, len(massiv), 5):
+    print(massiv[i: i + 5])
