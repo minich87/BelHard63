@@ -6,8 +6,8 @@ min_num = int(input('Enter minimal value: '))
 
 massiv = []
 i = min_num + 1
-while len(massiv) < show_num + 1:
-    if i % multip:
+while len(massiv) < show_num:
+    if i % multip == 0:
         massiv.append(i)
     i += 1
 
