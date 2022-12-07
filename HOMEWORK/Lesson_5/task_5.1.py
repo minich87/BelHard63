@@ -1,14 +1,14 @@
 # Вывести первые N чисел кратные M и больше K
 
-show_numbers = int(input('How many numbers to display? '))
-multiplicity = int(input('Enter multiplicity: '))
-min_number = int(input('Enter minimal value: '))
+show_num = int(input('How many numbers to display? '))
+multip = int(input('Enter multiplicity: '))
+min_num = int(input('Enter minimal value: '))
 
 massiv = []
-for i in range(min_number+1, 10**10):
-    if i % multiplicity == 0:
+i = min_num + 1
+while len(massiv) < show_num + 1:
+    if i % multip:
         massiv.append(i)
-        if len(massiv) == show_numbers:
-            break
+    i += 1
 
 print(massiv)
