@@ -8,4 +8,4 @@ result = []
 for i in range(min_number+1):
     if i % multiplicity == 0:
         result.append(i)
-print(result[:show_numbers])
+print(result[show_numbers:])
