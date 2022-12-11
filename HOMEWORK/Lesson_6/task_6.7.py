@@ -2,3 +2,9 @@
 # для крайных чисел одним из соседей является число с противопожной строны
 
 data = [2, 5, 7, 34, 89, 93, 54, 32, 27, 276, 455, 132, 123, 3, 8, 53, 49, 76]
+new_data = {}
+for i in range(len(data)):
+    sum_i = (data[i-1] + data[i+1] % int(len(data)))
+    new_data.fromkeys(i, str(sum_i))
+
+print(new_data)
