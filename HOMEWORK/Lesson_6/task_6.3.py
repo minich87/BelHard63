@@ -1,6 +1,6 @@
 # В списке чисел, необходимо сместить список на N-число
 
-dlina_list = int(input('Enter the lenght of the range of list: '))
+dlina_list = int(input('Enter the length of the range of list: '))
 n_shift = int(input('Enter N-shift: '))
 
 data = []
