@@ -3,11 +3,8 @@
 
 data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 
-def reverse_func(data):
-    if len(data) == 1:
-        return data
-    return data[-1] + reverse_func(data[:-1])
-    print(data)
-
-reverse_func(data)
-
+j = -1
+for i in range(int(len(data)/2)):
+    data[i], data[j] = data[j], data[i]
+    j -= 1
+print(data)
