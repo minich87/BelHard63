@@ -6,7 +6,6 @@
 users = {
     '0001': {'name': 'Andrey',
              'family': 'Modric',
-             'phone': '+52362584170',
              'email': 'a.modric@gmail.com'
              },
     '0002': {'name': 'Ann',
@@ -29,14 +28,16 @@ users = {
              },
     '0006': {'name': 'Viki',
              'family': 'Neymar',
-             'phone': '+502423625841',
+             'phone': None,
              'email': 'v.ney@gmail.com'
              },
     '0007': {'name': 'Leo',
              'family': 'Messi',
              'phone': '+191035191035',
-             'email': None
+             'email': 'm19.@mail.net'
              },
 }
 
-
+for val in users.values():
+    if val.get('email') is None:
+        print(val.get('name'))
