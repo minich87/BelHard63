@@ -8,7 +8,7 @@ data = [0, 1, 2.2, 3, -4, 5, 6, True, 7, 8, 10, 5.66, 9, 'Hello', 8.76,
 for row in data:
     if isinstance(row, (int, float)):
         data.remove(row)
-    elif isinstance(row, list):
+    if isinstance(row, list):
         for el in row:
             if isinstance(el, (int, float)):
                 row.remove(el)
