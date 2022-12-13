@@ -1,7 +1,6 @@
 # Написать функцию для кодировки текста в соответствии с кодом Морзе
 
-def code_morse(text):
-    morses_code = {
+morses_code = {
         'A': '.-',
         'B': '-...',
         'C': '-.-.',
@@ -24,7 +23,7 @@ def code_morse(text):
         'T': '-',
         'U': '..-',
         'V': '...-',
-        'W': '..-',
+        'W': '.--',
         'X': '-..-',
         'Y': '-.--',
         'Z': '--..',
@@ -38,7 +37,29 @@ def code_morse(text):
         '7': '--...',
         '8': '---..',
         '9': '----.',
+        ' ': '|',
     }
-    new_text = text.upper()
-    for i in new_text:
-        print(morses_code.get(i, ''))
+
+
+def text_to_morse(text):
+    global morses_code
+    text = text.upper()
+    morse = ''
+    for i in text:
+        morse += morses_code.get(i, ' ')
+        morse += ' '
+    return  morse
+
+def morse_to_text(morse):
+    global morses_code
+    morse = morse.replace('|', '|')
+    text = ''
+    for el in morse.split():
+        for key, val in morses_code.items():
+            if el == val:
+                text += key
+                continue
+    return text
+
+print(text_to_morse('Hello World!'))
+print(morse_to_text('.... . .-.. .-.. --- | .-- --- .-. .-.. -.. '))
