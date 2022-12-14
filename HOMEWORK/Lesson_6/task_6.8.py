@@ -1,9 +1,15 @@
 # Словарь: ключ - название стараны, значения - список городов,
 # на вход поступает город, необходимо сказать из какой он страны.
 
-city = input('Enter city: ').title()
+def find_country(city):
+    global countries
+    for country, cities in countries.items():
+        for el in cities:
+            if el == city:
+                return country
 
-country = {
+
+countries = {
         'Belarus': ['Brest', 'Vitebsk', 'Gomel', 'Grodno', 'Minsk'],
         'Germany': ['Berlin', 'Bonn', 'Cologne', 'Drezden', 'Munich'],
         'France': ['Bordeuax', 'Nice', 'Lion', 'Marseilles', 'Paris'],
@@ -11,7 +17,4 @@ country = {
         'The USA': ['Boston', 'Chicago', 'Los Angeles', 'Miami', 'Washington']
         }
 
-for key, val in country.items():
-    for el in val:
-        if el == city:
-            print(key)
+print(find_country('Paris'))

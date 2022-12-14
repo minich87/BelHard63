@@ -1,10 +1,2 @@
-def bin_dec(number):
-    bin_num = bin(number)[2:]
-    print(type(bin_num))
-    dec_num = 0
-    for i in bin_num:
-        dec_num = dec_num * 2 + int(i)
-    print(bin_num)
-    print(dec_num)
-
-bin_dec(235)
+numbers = [5, 6, 3, 6, 3, 65, 3, 6, 3, 6, 7, 21, 5, 3, 6, 4, 5, 658, 4, 68]
+print(numbers.sort(key=lambda x: True if not x % 2 else False))

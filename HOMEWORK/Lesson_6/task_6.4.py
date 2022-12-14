@@ -9,7 +9,7 @@ def filter_list(lst):
             for el in range(len(row) - 1, -1, -1):
                 if isinstance(row[el], (int, float)):
                     del row[el]
-        return row
+            return row
     return lst
 
 data = [0, 1, 2.2, 3, -4, 5, 6, True, 7, 8, 10, 5.66, 9, 'Hello', 8.76,
