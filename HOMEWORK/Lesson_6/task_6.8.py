@@ -4,9 +4,8 @@
 def find_country(city):
     global countries
     for country, cities in countries.items():
-        for el in cities:
-            if el == city:
-                return country
+        if city in cities:
+            return country
 
 
 countries = {
