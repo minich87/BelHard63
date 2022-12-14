@@ -3,6 +3,14 @@
 # вывести имена тех, у кого не указана почта (нет ключа email или
 # значение этого ключа - пустая строка)
 
+def filter_users(users):
+    result = []
+    for user in users.values():
+        if not user.get('email'):
+            result.append(user['name'])
+    return result
+
+
 users = {
     '0001': {'name': 'Andrey',
              'family': 'Modric',
@@ -28,7 +36,7 @@ users = {
              },
     '0006': {'name': 'Viki',
              'family': 'Neymar',
-             'phone': None,
+             'phone': '',
              'email': 'v.ney@gmail.com'
              },
     '0007': {'name': 'Leo',
@@ -38,6 +46,4 @@ users = {
              },
 }
 
-for val in users.values():
-    if val.get('email') is None:
-        print(val.get('name'))
+print(filter_users(users))
