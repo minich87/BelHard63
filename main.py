@@ -1,2 +1,16 @@
-numbers = [5, 6, 3, 6, 3, 65, 3, 6, 3, 6, 7, 21, 5, 3, 6, 4, 5, 658, 4, 68]
-print(numbers.sort(key=lambda x: True if not x % 2 else False))
+
+mid = len(a) // 2
+low = 0
+high = len(a) - 1
+
+while a[mid] != value and low <= high:
+    if value > a[mid]:
+        low = mid + 1
+    else:
+        high = mid - 1
+    mid = (low + high) // 2
+
+if low > high:
+    print("No value")
+else:
+    print("ID =", mid)
