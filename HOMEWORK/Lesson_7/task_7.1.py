@@ -3,7 +3,7 @@
 def triangle_Pascal(N):
     row = [1]
     for i in range(N):
-        print(row)
+        print(' '.join(map(str, row)))
         row = [sum(x) for x in zip([0] + row, row + [0])]
 
 
