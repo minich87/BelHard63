@@ -17,8 +17,18 @@ class Button:
         cls.color = new_color.lower()
 
     @classmethod
-    def from_dict(cls, init_dict: dict) -> object:
-        return cls.__dict__.update(init_dict)
+    def from_dict(name, d):
+        class ClonButton(object):
+            def __init__(self, attr):
+                self.__dict__.update(attr)
+        ClonButton.__name__ = name
+        return ClonButton(d)
+
+    def to_dict(self) -> dict:
+        return self.__dict__
+
+    def press(self) -> bool:
+        return not self.is_pressed
 
     def __init__(self, width: int, height: int, text: str) -> None:
         if not isinstance(width, int):
@@ -31,15 +41,9 @@ class Button:
         self.height = height
         self.text = text
 
-    def press(self) -> bool:
-        return not self.is_pressed
-
     def __str__(self) -> str:
         return f'Button text: {self.text}'
 
-    def to_dict(self) -> dict:
-        return self.__dict__
-    pass
 
 NumLk = Button(40, 17, 'Numeric Lock')
 NumLk.is_pressed = False
@@ -54,9 +58,5 @@ delet = {
     'is_pressed': True
     }
 
-delete = Button.from_dict(delet)
+delete = from_dict('Button', delet)
 print(delete.text())
-
-
-
-
