@@ -17,12 +17,8 @@ class Button:
         cls.color = new_color.lower()
 
     @classmethod
-    def from_dict(name, d):
-        class ClonButton(object):
-            def __init__(self, attr):
-                self.__dict__.update(attr)
-        ClonButton.__name__ = name
-        return ClonButton(d)
+    def from_dict(cls, **kwargs) -> 'Button':
+        return Button(**kwargs)
 
     def to_dict(self) -> dict:
         return self.__dict__
@@ -50,7 +46,7 @@ NumLk.is_pressed = False
 Button.color = 'white'
 NumLk.press()
 
-delet = {
+delete = {
     'width': 30,
     'height': 17,
     'text': 'Delete',
@@ -58,5 +54,5 @@ delet = {
     'is_pressed': True
     }
 
-delete = from_dict('Button', delet)
+delete.from_dict()
 print(delete.text())
