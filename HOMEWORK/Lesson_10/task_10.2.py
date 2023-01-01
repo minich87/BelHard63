@@ -44,4 +44,3 @@ elif vowel_words < consonants_words:
     print(f'Слов на согласных больше: {consonants_words} против {vowel_words}.')
 elif vowel_words == consonants_words:
     print(f'Слов на гласных и согласных поравну: {vowel_words} = {consonants_words}.')
-
