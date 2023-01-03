@@ -1,5 +1,5 @@
 from csv import DictReader
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, validator
 
 
 with open('file_for_task4.csv', 'r', encoding='utf-8') as file:
@@ -17,5 +17,18 @@ class DataSchema(BaseModel):
     description: str = Field(min_length=4)
     price: int
 
+    @validator('article', pre=True)
+    def article_check(cls, value):
+        if value == 'ноутбук':
+            with open('nootbook.csv', 'a', encoding='utf-8') as file:
+                file.write(cls)
+        if value == 'смартфон':
+            with open('smartphone.csv', 'a', encoding='utf-8') as file:
+                file.write(cls)
+
 class DictSchema(BaseModel):
-    index = DataSchema
+    def dict_check(self, dct: dict):
+        for index in dct:
+            index = DataSchema
+
+DictSchema(**dictdata)
