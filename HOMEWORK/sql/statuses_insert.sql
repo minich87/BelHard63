@@ -1,11 +1,9 @@
-import sqlite3
+import psycopg2
 
-conn = sqlite3.connect('db.sqlite3')
-cur = conn.cursor()
-
-
-cur.executemany('''
-INSERT INTO statuses(name) VALUES(?);
-''', (('active'',), ('deactive',), ('on_registration',)))
-conn.commit()
-
+conn = psycopg2.connect('postgresql://minich:12345@localhost:5432/bh63')
+with conn:
+    with conn.cursor() as cur:
+        cur.executemany('''INSERT INTO statuses(name) VALUES(?);
+        ''', (('active'',), ('deactive',), ('on_registration',)))
+        conn.commit()
+conn.close()

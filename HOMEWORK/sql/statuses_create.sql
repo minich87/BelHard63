@@ -1,14 +1,14 @@
-import sqlite3
+import psycopg2
 
 
-conn = sqlite3.connect('db.sqlite3')
-cur = conn.cursor()
-
-
-cur.execute('''
-CREATE TABLE IF NOT EXISTS statuses(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name VARCHAR(10) NOT NULL UNIQUE
-);
-''')
-conn.commit()
+conn = psycopg2.connect('postgresql://minich:12345@localhost:5432/bh63')
+with conn:
+    with conn.cursor() as cur:
+        cur.execute('''
+            CREATE TABLE IF NOT EXISTS statuses(
+                id SERIAL PRIMARY KEY,
+                name VARCHAR(10) NOT NULL UNIQUE
+        );
+        ''')
+        conn.commit()
+conn.close()
