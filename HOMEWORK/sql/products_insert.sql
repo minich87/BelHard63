@@ -21,5 +21,5 @@ INSERT INTO products(title, description, category_id) VALUES (?, ?, ?);
       ('Apple iPad mini', 'Apple A15 Bionic', 4),
       ('Apple iPad Air', 'Apple M1', 4),
       ('Xiaomi Redmi', 'MediaTek Helio G99', 4),
-      ('Xiaomi Pad 5','', 4)))
+      ('Xiaomi Pad 5', '', 4)))
 conn.commit()
