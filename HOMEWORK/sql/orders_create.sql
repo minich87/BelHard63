@@ -1,7 +1,7 @@
 import sqlite3
 
 
-coon = sqlite3.connect('db.sqlite3')
+conn = sqlite3.connect('db.sqlite3')
 cur = conn.cursor()
 
 
