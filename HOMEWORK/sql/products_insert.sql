@@ -5,7 +5,7 @@ conn = psycopg2.connect('postgresql://minich:12345@localhost:5432/bh63')
 with conn:
     with conn.cursor() as cur:
         cur.executemany('''
-            INSERT INTO products(title, description, category_id) VALUES (?, ?, ?);
+            INSERT INTO products(title, description, category_id) VALUES (%s, %s, %s);
             ''', (('ASUS TUF Gaming', 'Intel Core i7 11800H', 1),
                   ('Apple Macbook Pro 14', 'Apple M1 Pro', 1),
                   ('HP Victus', 'AMD Ryzen 5 5600H', 1),
