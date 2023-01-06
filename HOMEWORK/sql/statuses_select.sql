@@ -8,7 +8,7 @@ with conn:
 
         cur.execute('''
             SELECT COUNT(*) FROM statuses
-            WHERE name = 'active' OR name = 'on_registration';
+            WHERE name = 'active' OR name = 'registr.';
         ''')
 
         cur.execute('''
