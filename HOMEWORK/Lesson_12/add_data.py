@@ -1,4 +1,4 @@
-from HOMEWORK.Lesson_12.models import Category, Product, User, Status, Order, Order_item
+from models import Category, Product, User, Status, Order, Order_item
 
 
 category = Category(name='Laptop')
@@ -60,7 +60,7 @@ status = Status(name='registr.')
 status.save()
 
 order = Order(user_id=1, status_id=1)
-order.soave()
+order.save()
 order = Order(user_id=2, status_id=2)
 order.save()
 order = Order(user_id=3, status_id=1)

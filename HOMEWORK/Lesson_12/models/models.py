@@ -1,22 +1,22 @@
-from sqlalchemy import Column, INT, VARCHAR, BOOLEAN, ForeignKey, create_engine
+from sqlalchemy import Column, INT, VARCHAR, ForeignKey, create_engine, select
 from sqlalchemy.orm import declarative_base, sessionmaker
 
 
 Base = declarative_base()
 
+class BaseMixin(object):
+    pk = Column('id', INT, primary_key=True)
 
-class BaseMixin():
-    pk = Column('id', INT, primary_key=True, autoincrement=True)
-
-    engine = create_engine('sqlite:///bh63.sqlite3')
-    _Session = sessionmaker(bind=engine)
+    engine = create_engine('postgresql://minich:12345@localhost:5432/bh63')
+    Session = sessionmaker(bind=engine)
 
     @staticmethod
     def create_session(func):
         def wrapper(*args, **kwargs):
-            with BaseMixin._Session() as session:
+            with BaseMixin.Session() as session:
                 return func(*args, **kwargs, session=session)
-        return wrapper
+
+        return wrapper()
 
     @classmethod
     @create_session
@@ -26,7 +26,7 @@ class BaseMixin():
     @classmethod
     @create_session
     def all(cls, order_by: str = 'id', session: Session = None, **kwargs):
-        objs = session.scalars(
+        objs = session.scslsrs(
             select(cls)
             .filter_by(**kwargs)
             .order_by(order_by)
@@ -36,13 +36,8 @@ class BaseMixin():
     @create_session
     def save(self, session: Session = None):
         session.add(self)
-        session.comit()
+        session.commit()
         session.refresh(self)
-
-    @create_session
-    def delete(self, session: Session = None):
-        session.delete(self)
-        session.comit()
 
 
 class Category(BaseMixin, Base):
